@@ -1,0 +1,27 @@
+# compose file format version
+version: '3.7'
+
+# Define services
+services:
+   # pub-sub Service
+   pubsub:
+      build: .
+      ports:
+         - 9000:9000
+      depends_on:
+         - nats
+      networks:
+         - rtiwariops
+
+   # Nats Service
+   nats:
+      image: nats:alpine
+      ports:
+         - 4222:4222
+      networks:
+         - rtiwariops
+      
+networks:
+  rtiwariops:
+    driver: bridge
+      
