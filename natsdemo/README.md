@@ -9,5 +9,5 @@ NATS offers three primary modes of message exchange.
 ## Instructions
 1. Clone the project to your local and run docker-compose up.
 2. After both the docker containers are up.  You will notice a sample mesaage published and consumed.
-
+![table_format](https://github.com/rtiwariops/SpringSampleProjects/blob/develop/images/natdemo/natdemo-output.png)
 
