@@ -21,12 +21,12 @@ public class NatsdemoApplication {
 	@Bean
 	CommandLineRunner commandLineRunner() {
 		return args -> {
-			Connection conn = Nats.connect();
-			Dispatcher dispather = conn.createDispatcher(message -> {
+			Connection conn = Nats.connect("nats://localhost:4222");			
+			Dispatcher subdispather = conn.createDispatcher(message -> {
 				System.out.printf(String.format("Received message: [%s] from [%s] : successfully",
 						new String(message.getData(), StandardCharsets.UTF_8), message.getSubject()));
 			});
-			dispather.subscribe("rtiwariops");
+			subdispather.subscribe("rtiwariops");
 		};
 
 	}
